@@ -21,4 +21,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Time.Domain\Time.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

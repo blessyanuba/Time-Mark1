@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Time.Application/Time.Application.csproj" />
+  <Project Path="Time.Domain/Time.Domain.csproj" />
+  <Project Path="Time.Infrastructure/Time.Infrastructure.csproj" />
+  <Project Path="TimeMark/TimeMark.csproj" />
+</Solution>

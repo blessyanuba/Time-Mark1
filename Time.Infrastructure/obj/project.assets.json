@@ -1634,6 +1634,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "Time.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Time.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Time.Domain.dll": {}
+        }
       }
     }
   },
@@ -4811,6 +4821,11 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Time.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Time.Domain/Time.Domain.csproj",
+      "msbuildProject": "../Time.Domain/Time.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4820,7 +4835,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.5",
       "Swashbuckle.AspNetCore >= 10.1.5",
-      "Swashbuckle.AspNetCore.SwaggerGen >= 10.1.5"
+      "Swashbuckle.AspNetCore.SwaggerGen >= 10.1.5",
+      "Time.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4855,7 +4871,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\EDISON\\source\\repos\\TimeMark\\Time.Domain\\Time.Domain.csproj": {
+              "projectPath": "C:\\Users\\EDISON\\source\\repos\\TimeMark\\Time.Domain\\Time.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

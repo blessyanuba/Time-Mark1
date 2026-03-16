@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Time.Domain.IRepository
+namespace Time.Domain.Interface.IRepository
 {
     internal class IRoleRepository
     {

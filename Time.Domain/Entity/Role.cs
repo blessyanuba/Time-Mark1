@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Time.Domain.Entity
+namespace TimeMark.Models;
+
+public partial class Role
 {
-    internal class Role
-    {
-    }
+	public int RoleId { get; set; }
+
+	public string RoleName { get; set; } = null!;
+
+	public string Description { get; set; } = null!;
+
+	public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

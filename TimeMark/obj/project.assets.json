@@ -643,10 +643,12 @@
       "Microsoft.Extensions.ApiDescription.Server/10.0.0": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/10.0.5": {
@@ -945,10 +947,10 @@
           "Swashbuckle.AspNetCore.SwaggerUI": "10.1.5"
         },
         "build": {
-          "build/_._": {}
+          "build/Swashbuckle.AspNetCore.props": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
+          "buildMultiTargeting/Swashbuckle.AspNetCore.props": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/10.1.5": {
@@ -3852,6 +3854,8 @@
     "net10.0": [
       "Microsoft.AspNetCore.OpenApi >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
+      "Swashbuckle.AspNetCore >= 10.1.5",
+      "Swashbuckle.AspNetCore.SwaggerGen >= 10.1.5",
       "Time.Application >= 1.0.0",
       "Time.Infrastructure >= 1.0.0"
     ]
@@ -3923,6 +3927,14 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.5, )"
+          },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[10.1.5, )"
+          },
+          "Swashbuckle.AspNetCore.SwaggerGen": {
+            "target": "Package",
+            "version": "[10.1.5, )"
           }
         },
         "imports": [

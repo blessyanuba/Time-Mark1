@@ -1,24 +1,30 @@
 using Microsoft.EntityFrameworkCore;
-//using Time.Infrastructure.DbContext; 
+using Time.Application.Service;
+using Time.Domain.Interface;
+//using Time.Application.Service;      
+using Time.Infrastructure.Repositories;
 using TimeMark.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+// Add services
 builder.Services.AddControllers();
-
-// Add Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// SQL Server Connection
+// Database
 builder.Services.AddDbContext<EasyDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+// Dependency Injection
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// Middleware
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -26,9 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

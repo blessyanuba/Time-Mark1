@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using TimeMark.Models;
 
-namespace Time.Domain.Interface.IRepository
+namespace Time.Domain.Interface
 {
-    internal class IRoleRepository
-    {
-    }
+	public interface IRoleRepository
+	{
+		Task<IEnumerable<Role>> GetAll();
+		Task<Role?> GetById(int id);
+		Task<Role> Add(Role role);
+		Task<Role?> Update(Role role);
+		Task<bool> Delete(int id);
+	}
 }

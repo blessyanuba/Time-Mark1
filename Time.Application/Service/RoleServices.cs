@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Time.Domain.Interface;
+﻿using TimeMark.Interfaces;
 using TimeMark.Models;
 
-namespace Time.Application.Service
+namespace TimeMark.Services
 {
 	public class RoleService : IRoleService
 	{
@@ -29,14 +27,24 @@ namespace Time.Application.Service
 			return await _repo.Add(role);
 		}
 
-		public async Task<Role?> UpdateRole(Role role)
+		public async Task<Role?> UpdateRole(int id, Role role)
 		{
-			return await _repo.Update(role);
+			var existing = await _repo.GetById(id);
+			if (existing == null)
+				return null;
+
+			existing.RoleName = role.RoleName;
+			return await _repo.Update(existing);
 		}
 
 		public async Task<bool> DeleteRole(int id)
 		{
 			return await _repo.Delete(id);
 		}
-	}
+
+        Task<User> IRoleService.DeleteRole(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

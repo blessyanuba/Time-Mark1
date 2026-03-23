@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Time.Domain.Interface;
+using TimeMark.Data;
+using TimeMark.Data;
+using TimeMark.Interfaces;
 using TimeMark.Models;
 
-namespace Time.Infrastructure.Repositories
+namespace TimeMark.Repositories
 {
 	public class RoleRepository : IRoleRepository
 	{
@@ -22,7 +22,7 @@ namespace Time.Infrastructure.Repositories
 
 		public async Task<Role?> GetById(int id)
 		{
-			return await _context.Roles.FindAsync(id);
+			return await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == id);
 		}
 
 		public async Task<Role> Add(Role role)
@@ -32,24 +32,16 @@ namespace Time.Infrastructure.Repositories
 			return role;
 		}
 
-		public async Task<Role?> Update(Role role)
+		public async Task<Role> Update(Role role)
 		{
-			var existingRole = await _context.Roles.FindAsync(role.RoleId);
-
-			if (existingRole == null)
-				return null;
-
-			existingRole.RoleName = role.RoleName;
-			existingRole.Description = role.Description;
-
+			_context.Roles.Update(role);
 			await _context.SaveChangesAsync();
-			return existingRole;
+			return role;
 		}
 
 		public async Task<bool> Delete(int id)
 		{
-			var role = await _context.Roles.FindAsync(id);
-
+			var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == id);
 			if (role == null)
 				return false;
 

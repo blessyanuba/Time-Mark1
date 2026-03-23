@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
+using TimeMark.Models;
 
-namespace TimeMark.Models;
-
-public partial class Attendance
+namespace Time.Domain.Entity
 {
-	public int AttendanceId { get; set; }
+	public class Attendance
+	{
+		public int AttendanceID { get; set; }
+		public int UserID { get; set; }
+		public DateTime Date { get; set; }
+		public string Status { get; set; } = string.Empty;
+		public string Course { get; set; } = string.Empty;
+		public int RecordedBy { get; set; }
 
-	public int UserId { get; set; }
-
-	public DateTime Date { get; set; }
-
-	public string Status { get; set; } = null!;
-
-	public string Course { get; set; } = null!;
-
-	public int RecordedBy { get; set; }
-
-	public virtual User RecordedByNavigation { get; set; } = null!;
-
-	public virtual User User { get; set; } = null!;
+		public User? User { get; set; }
+		public User? RecordedUser { get; set; }
+	}
 }

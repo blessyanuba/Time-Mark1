@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TimeMark.Models;
-
-public partial class Role
+﻿namespace TimeMark.Models
 {
-	public int RoleId { get; set; }
-
-	public string RoleName { get; set; } = null!;
-
-	public string Description { get; set; } = null!;
-
-	public virtual ICollection<User> Users { get; set; } = new List<User>();
+	public class Role
+	{
+		public int RoleId { get; set; }
+		public string RoleName { get; set; } = string.Empty;
+	}
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Time.Application.DTOs
+﻿namespace Time.Application.DTOs
 {
-    internal class RoleDto
-    {
-    }
+	public class RoleDto
+	{
+		public int Id { get; set; }
+		public string RoleName { get; set; } = string.Empty;
+		public string? Description { get; set; }
+	}
 }

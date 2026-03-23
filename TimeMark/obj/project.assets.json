@@ -2,35 +2,36 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "Aspire.Microsoft.EntityFrameworkCore.SqlServer/13.1.2": {
+      "AutoMapper/12.0.1": {
         "type": "package",
-        "dependencies": {
-          "Azure.Core": "1.50.0",
-          "Azure.Identity": "1.17.1",
-          "Microsoft.Data.SqlClient": "6.1.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.1",
-          "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "10.0.1",
-          "OpenTelemetry.Extensions.Hosting": "1.14.0"
-        },
         "compile": {
-          "lib/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.dll": {
+          "lib/netstandard2.1/AutoMapper.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.dll": {
+          "lib/netstandard2.1/AutoMapper.dll": {
             "related": ".xml"
           }
-        },
-        "build": {
-          "buildTransitive/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.targets": {}
         }
       },
-      "Azure.Core/1.50.0": {
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[12.0.1]"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "Azure.Core/1.47.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
-          "System.ClientModel": "1.8.0",
+          "System.ClientModel": "1.5.1",
           "System.Memory.Data": "8.0.1"
         },
         "compile": {
@@ -44,12 +45,12 @@
           }
         }
       },
-      "Azure.Identity/1.17.1": {
+      "Azure.Identity/1.14.2": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.50.0",
-          "Microsoft.Identity.Client": "4.78.0",
-          "Microsoft.Identity.Client.Extensions.Msal": "4.78.0"
+          "Azure.Core": "1.46.1",
+          "Microsoft.Identity.Client": "4.73.1",
+          "Microsoft.Identity.Client.Extensions.Msal": "4.73.1"
         },
         "compile": {
           "lib/net8.0/Azure.Identity.dll": {
@@ -71,6 +72,22 @@
         },
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "log4net/2.0.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
             "related": ".xml"
           }
         }
@@ -452,7 +469,7 @@
           }
         }
       },
-      "Microsoft.Data.SqlClient/6.1.2": {
+      "Microsoft.Data.SqlClient/6.1.1": {
         "type": "package",
         "dependencies": {
           "Azure.Core": "1.47.1",
@@ -623,11 +640,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/10.0.1": {
+      "Microsoft.EntityFrameworkCore.SqlServer/10.0.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "6.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.1"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.5"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -643,10 +660,12 @@
       "Microsoft.Extensions.ApiDescription.Server/10.0.0": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
+          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/10.0.5": {
@@ -665,26 +684,22 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/10.0.1": {
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.1"
+          "log4net": "2.0.15"
         },
         "compile": {
-          "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
+          "lib/net8.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
         },
         "runtime": {
-          "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
+          "lib/net8.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll": {}
         }
       },
-      "Microsoft.Identity.Client/4.78.0": {
+      "Microsoft.Identity.Client/4.73.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "8.14.0"
+          "Microsoft.IdentityModel.Abstractions": "6.35.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.Identity.Client.dll": {
@@ -697,10 +712,10 @@
           }
         }
       },
-      "Microsoft.Identity.Client.Extensions.Msal/4.78.0": {
+      "Microsoft.Identity.Client.Extensions.Msal/4.73.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Identity.Client": "4.78.0",
+          "Microsoft.Identity.Client": "4.73.1",
           "System.Security.Cryptography.ProtectedData": "4.5.0"
         },
         "compile": {
@@ -714,15 +729,15 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Abstractions/8.14.0": {
+      "Microsoft.IdentityModel.Abstractions/7.7.1": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll": {
+          "lib/net8.0/Microsoft.IdentityModel.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll": {
+          "lib/net8.0/Microsoft.IdentityModel.Abstractions.dll": {
             "related": ".xml"
           }
         }
@@ -875,67 +890,6 @@
           }
         }
       },
-      "OpenTelemetry/1.14.0": {
-        "type": "package",
-        "dependencies": {
-          "OpenTelemetry.Api.ProviderBuilderExtensions": "1.14.0"
-        },
-        "compile": {
-          "lib/net10.0/OpenTelemetry.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/OpenTelemetry.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        }
-      },
-      "OpenTelemetry.Api/1.14.0": {
-        "type": "package",
-        "compile": {
-          "lib/net10.0/OpenTelemetry.Api.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/OpenTelemetry.Api.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        }
-      },
-      "OpenTelemetry.Api.ProviderBuilderExtensions/1.14.0": {
-        "type": "package",
-        "dependencies": {
-          "OpenTelemetry.Api": "1.14.0"
-        },
-        "compile": {
-          "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        }
-      },
-      "OpenTelemetry.Extensions.Hosting/1.14.0": {
-        "type": "package",
-        "dependencies": {
-          "OpenTelemetry": "1.14.0"
-        },
-        "compile": {
-          "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll": {
-            "related": ".dll.sigstore.json;.xml"
-          }
-        }
-      },
       "Swashbuckle.AspNetCore/10.1.5": {
         "type": "package",
         "dependencies": {
@@ -945,10 +899,10 @@
           "Swashbuckle.AspNetCore.SwaggerUI": "10.1.5"
         },
         "build": {
-          "build/_._": {}
+          "build/Swashbuckle.AspNetCore.props": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
+          "buildMultiTargeting/Swashbuckle.AspNetCore.props": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/10.1.5": {
@@ -1002,18 +956,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "System.ClientModel/1.8.0": {
+      "System.ClientModel/1.5.1": {
         "type": "package",
         "dependencies": {
           "System.Memory.Data": "8.0.1"
         },
         "compile": {
-          "lib/net9.0/System.ClientModel.dll": {
+          "lib/net8.0/System.ClientModel.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.ClientModel.dll": {
+          "lib/net8.0/System.ClientModel.dll": {
             "related": ".xml"
           }
         }
@@ -1150,7 +1104,7 @@
           "System.Security.Cryptography.ProtectedData": "9.0.4"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/System.Configuration.ConfigurationManager.dll": {
             "related": ".xml"
           }
         },
@@ -1238,8 +1192,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Time.Domain": "1.0.0",
-          "Time.Infrastructure": "1.0.0"
+          "Time.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Time.Application.dll": {}
@@ -1262,10 +1215,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "Aspire.Microsoft.EntityFrameworkCore.SqlServer": "13.1.2",
           "Microsoft.EntityFrameworkCore": "10.0.5",
-          "Swashbuckle.AspNetCore": "10.1.5",
-          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5",
           "Time.Domain": "1.0.0"
         },
         "compile": {
@@ -1278,40 +1229,45 @@
     }
   },
   "libraries": {
-    "Aspire.Microsoft.EntityFrameworkCore.SqlServer/13.1.2": {
-      "sha512": "RrnfTDyPsXnWTb/uGIfrq1lyycjdEsDVKHqdERq7jhJeIMotB3u6X3DSLQ9CzepToR4SuipK0QH6UlHt4pswdw==",
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
       "type": "package",
-      "path": "aspire.microsoft.entityframeworkcore.sqlserver/13.1.2",
+      "path": "automapper/12.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ConfigurationSchema.json",
-        "Icon.png",
         "README.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "aspire.microsoft.entityframeworkcore.sqlserver.13.1.2.nupkg.sha512",
-        "aspire.microsoft.entityframeworkcore.sqlserver.nuspec",
-        "buildTransitive/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.targets",
-        "buildTransitive/net8.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.targets",
-        "buildTransitive/net9.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.targets",
-        "lib/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/net10.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "lib/net8.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/net8.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "lib/net9.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/net9.0/Aspire.Microsoft.EntityFrameworkCore.SqlServer.xml"
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
       ]
     },
-    "Azure.Core/1.50.0": {
-      "sha512": "GBNKZEhdIbTXxedvD3R7I/yDVFX9jJJEz02kCziFSJxspSQ5RMHc3GktulJ1s7+ffXaXD7kMgrtdQTaggyInLw==",
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
       "type": "package",
-      "path": "azure.core/1.50.0",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Azure.Core/1.47.1": {
+      "sha512": "oPcncSsDHuxB8SC522z47xbp2+ttkcKv2YZ90KXhRKN0YQd2+7l1UURT9EBzUNEXtkLZUOAB5xbByMTrYRh3yA==",
+      "type": "package",
+      "path": "azure.core/1.47.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.core.1.50.0.nupkg.sha512",
+        "azure.core.1.47.1.nupkg.sha512",
         "azure.core.nuspec",
         "azureicon.png",
         "lib/net462/Azure.Core.dll",
@@ -1324,16 +1280,16 @@
         "lib/netstandard2.0/Azure.Core.xml"
       ]
     },
-    "Azure.Identity/1.17.1": {
-      "sha512": "MSZkBrctcpiGxs9Cvr2VKKoN6qFLZlP3I6xuCWJ9iTgitI5Rgxtk5gfOSpXPZE3+CJmZ/mnqpQyGyjawFn5Vvg==",
+    "Azure.Identity/1.14.2": {
+      "sha512": "YhNMwOTwT+I2wIcJKSdP0ADyB2aK+JaYWZxO8LSRDm5w77LFr0ykR9xmt2ZV5T1gaI7xU6iNFIh/yW1dAlpddQ==",
       "type": "package",
-      "path": "azure.identity/1.17.1",
+      "path": "azure.identity/1.14.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.identity.1.17.1.nupkg.sha512",
+        "azure.identity.1.14.2.nupkg.sha512",
         "azure.identity.nuspec",
         "azureicon.png",
         "lib/net8.0/Azure.Identity.dll",
@@ -1358,6 +1314,32 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "log4net/2.0.15": {
+      "sha512": "GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "type": "package",
+      "path": "log4net/2.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.15.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/10.0.2": {
@@ -2511,10 +2493,10 @@
         "microsoft.codeanalysis.workspaces.msbuild.nuspec"
       ]
     },
-    "Microsoft.Data.SqlClient/6.1.2": {
-      "sha512": "q0GxRC0fgwfZgU14pU34ro0MW7Gs8S6NDmKCcEqymvZljT8UQa633BbEmk/Rb5upNF9NHZ3/jVm7zLiWbM8uTA==",
+    "Microsoft.Data.SqlClient/6.1.1": {
+      "sha512": "syGQmIUPAYYHAHyTD8FCkTNThpQWvoA7crnIQRMfp8dyB5A2cWU3fQexlRTFkVmV7S0TjVmthi0LJEFVjHo8AQ==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/6.1.2",
+      "path": "microsoft.data.sqlclient/6.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2567,7 +2549,7 @@
         "lib/net9.0/zh-Hant/Microsoft.Data.SqlClient.resources.dll",
         "lib/netstandard2.0/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.0/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.6.1.2.nupkg.sha512",
+        "microsoft.data.sqlclient.6.1.1.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net462/Microsoft.Data.SqlClient.dll",
         "ref/net462/Microsoft.Data.SqlClient.xml",
@@ -2676,10 +2658,10 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/10.0.1": {
-      "sha512": "Uz/M/Y2UPWJ+wJV8JGb7gp5H6Q8oE+/Fz/YZ5osBNDIxrlT+/I7AraVKxErSlz/nZq5JVy+jL1znnIcgI0G/Hw==",
+    "Microsoft.EntityFrameworkCore.SqlServer/10.0.5": {
+      "sha512": "/3Ault1Ay6OIEp3ZGGVem4mSWyEOX9e5leUMalGV9aFM57e0xFHAnlhmNaBHYtILkbtkaAErikQuaLqMQb4fww==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/10.0.1",
+      "path": "microsoft.entityframeworkcore.sqlserver/10.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2687,7 +2669,7 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.10.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.10.0.5.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -2980,26 +2962,29 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/10.0.1": {
-      "sha512": "6GhBHo94O6RePBlIjiqLFBVJfUQZhZwoug0KOJajjwlpjjMENjhpqrPsSllXOqrtfFvCDYUO/eoCKRtcD5qfGA==",
+    "Microsoft.Extensions.Logging.Log4Net.AspNetCore/8.0.0": {
+      "sha512": "NShPLGSM/PBGJIOK/cmlh3a+QlrtCLcSpb+vfqwxRmZK38Cy4prsOjuODpAIvqWL93zt9PZOTcHOVqyaQRNuEg==",
       "type": "package",
-      "path": "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore/10.0.1",
+      "path": "microsoft.extensions.logging.log4net.aspnetcore/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll",
-        "lib/net10.0/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.xml",
-        "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore.10.0.1.nupkg.sha512",
-        "microsoft.extensions.diagnostics.healthchecks.entityframeworkcore.nuspec"
+        "LICENSE",
+        "lib/net5.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/net7.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll",
+        "microsoft.extensions.logging.log4net.aspnetcore.8.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.log4net.aspnetcore.nuspec"
       ]
     },
-    "Microsoft.Identity.Client/4.78.0": {
-      "sha512": "vZ50HE9INSN+Ew8pCgTm0t7wzxQTqozF9L4MAsl64etXz0Teo0dbUvjpVzqDHRs6m1Vn8mHF04fGaxXrIvGpsg==",
+    "Microsoft.Identity.Client/4.73.1": {
+      "sha512": "NnDLS8QwYqO5ZZecL2oioi1LUqjh5Ewk4bMLzbgiXJbQmZhDLtKwLxL3DpGMlQAJ2G4KgEnvGPKa+OOgffeJbw==",
       "type": "package",
-      "path": "microsoft.identity.client/4.78.0",
+      "path": "microsoft.identity.client/4.73.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3017,14 +3002,14 @@
         "lib/net8.0/Microsoft.Identity.Client.xml",
         "lib/netstandard2.0/Microsoft.Identity.Client.dll",
         "lib/netstandard2.0/Microsoft.Identity.Client.xml",
-        "microsoft.identity.client.4.78.0.nupkg.sha512",
+        "microsoft.identity.client.4.73.1.nupkg.sha512",
         "microsoft.identity.client.nuspec"
       ]
     },
-    "Microsoft.Identity.Client.Extensions.Msal/4.78.0": {
-      "sha512": "DYU9o+DrDQuyZxeq91GBA9eNqBvA3ZMkLzQpF7L9dTk6FcIBM1y1IHXWqiKXTvptPF7CZE59upbyUoa+FJ5eiA==",
+    "Microsoft.Identity.Client.Extensions.Msal/4.73.1": {
+      "sha512": "xDztAiV2F0wI0W8FLKv5cbaBefyLD6JVaAsvgSN7bjWNCzGYzHbcOEIP5s4TJXUpQzMfUyBsFl1mC6Zmgpz0PQ==",
       "type": "package",
-      "path": "microsoft.identity.client.extensions.msal/4.78.0",
+      "path": "microsoft.identity.client.extensions.msal/4.73.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3033,18 +3018,19 @@
         "lib/net8.0/Microsoft.Identity.Client.Extensions.Msal.xml",
         "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.dll",
         "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.xml",
-        "microsoft.identity.client.extensions.msal.4.78.0.nupkg.sha512",
+        "microsoft.identity.client.extensions.msal.4.73.1.nupkg.sha512",
         "microsoft.identity.client.extensions.msal.nuspec"
       ]
     },
-    "Microsoft.IdentityModel.Abstractions/8.14.0": {
-      "sha512": "iwbCpSjD3ehfTwBhtSNEtKPK0ICun6ov7Ibx6ISNA9bfwIyzI2Siwyi9eJFCJBwxowK9xcA1mj+jBWiigeqgcQ==",
+    "Microsoft.IdentityModel.Abstractions/7.7.1": {
+      "sha512": "S7sHg6gLg7oFqNGLwN1qSbJDI+QcRRj8SuJ1jHyCmKSipnF6ZQL+tFV2NzVfGj/xmGT9TykQdQiBN+p5Idl4TA==",
       "type": "package",
-      "path": "microsoft.identitymodel.abstractions/8.14.0",
+      "path": "microsoft.identitymodel.abstractions/7.7.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "README.md",
+        "lib/net461/Microsoft.IdentityModel.Abstractions.dll",
+        "lib/net461/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net462/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net462/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net472/Microsoft.IdentityModel.Abstractions.dll",
@@ -3053,11 +3039,9 @@
         "lib/net6.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/net8.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/net8.0/Microsoft.IdentityModel.Abstractions.xml",
-        "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll",
-        "lib/net9.0/Microsoft.IdentityModel.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.xml",
-        "microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+        "microsoft.identitymodel.abstractions.7.7.1.nupkg.sha512",
         "microsoft.identitymodel.abstractions.nuspec"
       ]
     },
@@ -3277,129 +3261,6 @@
         "packageIcon.png"
       ]
     },
-    "OpenTelemetry/1.14.0": {
-      "sha512": "aiPBAr1+0dPDItH++MQQr5UgMf4xiybruzNlAoYYMYN3UUk+mGRcoKuZy4Z4rhhWUZIpK2Xhe7wUUXSTM32duQ==",
-      "type": "package",
-      "path": "opentelemetry/1.14.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "README.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/OpenTelemetry.dll",
-        "lib/net10.0/OpenTelemetry.dll.sigstore.json",
-        "lib/net10.0/OpenTelemetry.xml",
-        "lib/net462/OpenTelemetry.dll",
-        "lib/net462/OpenTelemetry.dll.sigstore.json",
-        "lib/net462/OpenTelemetry.xml",
-        "lib/net8.0/OpenTelemetry.dll",
-        "lib/net8.0/OpenTelemetry.dll.sigstore.json",
-        "lib/net8.0/OpenTelemetry.xml",
-        "lib/net9.0/OpenTelemetry.dll",
-        "lib/net9.0/OpenTelemetry.dll.sigstore.json",
-        "lib/net9.0/OpenTelemetry.xml",
-        "lib/netstandard2.0/OpenTelemetry.dll",
-        "lib/netstandard2.0/OpenTelemetry.dll.sigstore.json",
-        "lib/netstandard2.0/OpenTelemetry.xml",
-        "lib/netstandard2.1/OpenTelemetry.dll",
-        "lib/netstandard2.1/OpenTelemetry.dll.sigstore.json",
-        "lib/netstandard2.1/OpenTelemetry.xml",
-        "opentelemetry-icon-color.png",
-        "opentelemetry.1.14.0.nupkg.sha512",
-        "opentelemetry.nuspec"
-      ]
-    },
-    "OpenTelemetry.Api/1.14.0": {
-      "sha512": "foHci6viUw1f3gUB8qzz3Rk02xZIWMo299X0rxK0MoOWok/3dUVru+KKdY7WIoSHwRGpxGKkmAz9jIk2RFNbsQ==",
-      "type": "package",
-      "path": "opentelemetry.api/1.14.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "README.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/OpenTelemetry.Api.dll",
-        "lib/net10.0/OpenTelemetry.Api.dll.sigstore.json",
-        "lib/net10.0/OpenTelemetry.Api.xml",
-        "lib/net462/OpenTelemetry.Api.dll",
-        "lib/net462/OpenTelemetry.Api.dll.sigstore.json",
-        "lib/net462/OpenTelemetry.Api.xml",
-        "lib/net8.0/OpenTelemetry.Api.dll",
-        "lib/net8.0/OpenTelemetry.Api.dll.sigstore.json",
-        "lib/net8.0/OpenTelemetry.Api.xml",
-        "lib/net9.0/OpenTelemetry.Api.dll",
-        "lib/net9.0/OpenTelemetry.Api.dll.sigstore.json",
-        "lib/net9.0/OpenTelemetry.Api.xml",
-        "lib/netstandard2.0/OpenTelemetry.Api.dll",
-        "lib/netstandard2.0/OpenTelemetry.Api.dll.sigstore.json",
-        "lib/netstandard2.0/OpenTelemetry.Api.xml",
-        "opentelemetry-icon-color.png",
-        "opentelemetry.api.1.14.0.nupkg.sha512",
-        "opentelemetry.api.nuspec"
-      ]
-    },
-    "OpenTelemetry.Api.ProviderBuilderExtensions/1.14.0": {
-      "sha512": "i/lxOM92v+zU5I0rGl5tXAGz6EJtxk2MvzZ0VN6F6L5pMqT6s6RCXnGWXg6fW+vtZJsllBlQaf/VLPTzgefJpg==",
-      "type": "package",
-      "path": "opentelemetry.api.providerbuilderextensions/1.14.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "README.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
-        "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
-        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
-        "lib/net462/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
-        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
-        "lib/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
-        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
-        "lib/net9.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
-        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
-        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll.sigstore.json",
-        "lib/netstandard2.0/OpenTelemetry.Api.ProviderBuilderExtensions.xml",
-        "opentelemetry-icon-color.png",
-        "opentelemetry.api.providerbuilderextensions.1.14.0.nupkg.sha512",
-        "opentelemetry.api.providerbuilderextensions.nuspec"
-      ]
-    },
-    "OpenTelemetry.Extensions.Hosting/1.14.0": {
-      "sha512": "ZAxkCIa3Q3YWZ1sGrolXfkhPqn2PFSz2Cel74em/fATZgY5ixlw6MQp2icmqKCz4C7M1W2G0b92K3rX8mOtFRg==",
-      "type": "package",
-      "path": "opentelemetry.extensions.hosting/1.14.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "README.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
-        "lib/net10.0/OpenTelemetry.Extensions.Hosting.xml",
-        "lib/net462/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net462/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
-        "lib/net462/OpenTelemetry.Extensions.Hosting.xml",
-        "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
-        "lib/net8.0/OpenTelemetry.Extensions.Hosting.xml",
-        "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/net9.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
-        "lib/net9.0/OpenTelemetry.Extensions.Hosting.xml",
-        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll",
-        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.dll.sigstore.json",
-        "lib/netstandard2.0/OpenTelemetry.Extensions.Hosting.xml",
-        "opentelemetry-icon-color.png",
-        "opentelemetry.extensions.hosting.1.14.0.nupkg.sha512",
-        "opentelemetry.extensions.hosting.nuspec"
-      ]
-    },
     "Swashbuckle.AspNetCore/10.1.5": {
       "sha512": "/eNk9z/8quXhDX14o3XLbwAX/84uIWSbiUD7cI/UrQnoBMOiyAtzKxNEJUtf/TyxjFpcXxE9FAfLvtbNpxHBSg==",
       "type": "package",
@@ -3477,10 +3338,10 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
-    "System.ClientModel/1.8.0": {
-      "sha512": "AqRzhn0v29GGGLj/Z6gKq4lGNtvPHT4nHdG5PDJh9IfVjv/nYUVmX11hwwws1vDFeIAzrvmn0dPu8IjLtu6fAw==",
+    "System.ClientModel/1.5.1": {
+      "sha512": "k2jKSO0X45IqhVOT9iQB4xralNN9foRQsRvXBTyRpAVxyzCJlG895T9qYrQWbcJ6OQXxOouJQ37x5nZH5XKK+A==",
       "type": "package",
-      "path": "system.clientmodel/1.8.0",
+      "path": "system.clientmodel/1.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3490,11 +3351,9 @@
         "analyzers/dotnet/cs/System.ClientModel.SourceGeneration.dll",
         "lib/net8.0/System.ClientModel.dll",
         "lib/net8.0/System.ClientModel.xml",
-        "lib/net9.0/System.ClientModel.dll",
-        "lib/net9.0/System.ClientModel.xml",
         "lib/netstandard2.0/System.ClientModel.dll",
         "lib/netstandard2.0/System.ClientModel.xml",
-        "system.clientmodel.1.8.0.nupkg.sha512",
+        "system.clientmodel.1.5.1.nupkg.sha512",
         "system.clientmodel.nuspec"
       ]
     },
@@ -3850,8 +3709,12 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Microsoft.AspNetCore.OpenApi >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
+      "Microsoft.Extensions.Logging.Log4Net.AspNetCore >= 8.0.0",
+      "Swashbuckle.AspNetCore >= 10.1.5",
+      "Swashbuckle.AspNetCore.SwaggerGen >= 10.1.5",
       "Time.Application >= 1.0.0",
       "Time.Infrastructure >= 1.0.0"
     ]
@@ -3914,6 +3777,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.2, )"
@@ -3923,6 +3790,18 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.5, )"
+          },
+          "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[10.1.5, )"
+          },
+          "Swashbuckle.AspNetCore.SwaggerGen": {
+            "target": "Package",
+            "version": "[10.1.5, )"
           }
         },
         "imports": [
@@ -4361,5 +4240,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AutoMapper' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

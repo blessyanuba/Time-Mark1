@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-//using Time.Domain.Entity;
+﻿using TimeMark.Models;
 
-namespace TimeMark.Models;
-
-public partial class UserDetail
+namespace Time.Domain.Entity
 {
-	public int Id { get; set; }
+	public class UserDetail
+	{
+		public int UserDetailID { get; set; }
+		public int UserID { get; set; }
 
-	public int UserId { get; set; }
+		public string FirstName { get; set; } = string.Empty;
+		public string LastName { get; set; } = string.Empty;
+		public string PhoneNumber { get; set; } = string.Empty;
+		public string Address { get; set; } = string.Empty;
 
-	public string FullName { get; set; } = null!;
-
-	public DateTime Dob { get; set; }
-
-	public string Gender { get; set; } = null!;
-
-	public string PhoneNumber { get; set; } = null!;
-
-	public string Address { get; set; } = null!;
-
-	public string Department { get; set; } = null!;
-
-	public int Year { get; set; }
-
-	public virtual User User { get; set; } = null!;
+		public User User { get; set; }
+	}
 }

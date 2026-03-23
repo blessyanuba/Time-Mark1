@@ -1,27 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TimeMark.Models;
-
-public partial class User
+﻿namespace TimeMark.Models
 {
-	public int Id { get; set; }
-
-	public string UserName { get; set; } = null!;
-
-	public string PasswordHash { get; set; } = null!;
-
-	public string Email { get; set; } = null!;
-
-	public int RoleId { get; set; }
-
-	public DateTime CreatedAt { get; set; }
-
-	public virtual ICollection<Attendance> AttendanceRecordedByNavigations { get; set; } = new List<Attendance>();
-
-	public virtual ICollection<Attendance> AttendanceUsers { get; set; } = new List<Attendance>();
-
-	public virtual Role Role { get; set; } = null!;
-
-	public virtual ICollection<UserDetail> UserDetails { get; set; } = new List<UserDetail>();
+	public class User
+	{
+		public int UserId { get; set; }
+		public string UserName { get; set; } = string.Empty;
+		public string Email { get; set; } = string.Empty;
+		public string Password { get; set; } = string.Empty;
+		public int RoleId { get; set; }
+	}
 }
